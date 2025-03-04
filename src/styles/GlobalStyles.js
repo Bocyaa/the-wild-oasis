@@ -144,6 +144,8 @@ img {
 }
 `;
 
+export default GlobalStyles;
+
 /*
 
 */
