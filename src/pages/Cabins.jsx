@@ -24,10 +24,10 @@ function Cabins() {
           size='medium'
           onClick={() => setShowForm((show) => !show)}
         >
-          Add new cabin
+          {showForm ? 'Close Form' : 'Add new cabin'}
         </Button>
 
-        {showForm && <CreateCabinForm />}
+        {showForm && <CreateCabinForm setShowForm={setShowForm} />}
       </Row>
     </>
   );

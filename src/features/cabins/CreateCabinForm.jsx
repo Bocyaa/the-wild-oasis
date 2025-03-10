@@ -14,7 +14,7 @@ import Textarea from '../../ui/Textarea';
 import { createCabin } from '../../services/apiCabins';
 import FormRow from '../../ui/FormRow';
 
-function CreateCabinForm() {
+function CreateCabinForm({ setShowForm }) {
   const queryClient = useQueryClient();
   const { register, handleSubmit, reset, getValues, formState } = useForm();
 
@@ -26,12 +26,13 @@ function CreateCabinForm() {
       toast.success('New cabin successfully created');
       queryClient.invalidateQueries({ queryKey: ['cabins'] });
       reset();
+      setShowForm(false);
     },
     onError: (err) => toast.error(err.message),
   });
 
   function onSubmit(data) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   function onError(errors) {
@@ -109,7 +110,13 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow label='Cabin Photo'>
-        <FileInput id='image' accept='image/*' />
+        <FileInput
+          id='image'
+          accept='image/*'
+          {...register('image', {
+            required: 'This field is required',
+          })}
+        />
       </FormRow>
 
       <FormRow>
