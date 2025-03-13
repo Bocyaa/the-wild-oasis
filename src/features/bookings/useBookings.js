@@ -16,7 +16,7 @@ export function useBookings() {
 
   // SORT
   const sortByRow = searchParams.get('sortBy');
-  const [field, direction] = sortByRow.split('-');
+  const [field, direction] = sortByRow?.split('-') ?? ['startDate', 'asc'];
   const sortBy = { field, direction };
 
   // PAGINATION
