@@ -68,12 +68,12 @@ function Modal({ children }) {
   );
 }
 
-function Open({ children, opens: opensWindowName }) {
+function Open({ children, opens: opensWindowName, variation = 'primary' }) {
   const { open } = useContext(ModalContext);
 
   return cloneElement(children, {
     onClick: () => open(opensWindowName),
-    variation: 'primary',
+    variation: variation,
     size: 'medium',
   });
 }
