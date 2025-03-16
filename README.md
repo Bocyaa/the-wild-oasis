@@ -8,5 +8,5 @@ You can check it out online via this link: [the-wild-oasis](https://the-wild-oas
 
 Login credentials:
 
-**Email:** bobhab@example.com
+**Email:** bobhab@example.com <br/>
 **Password:** Test1234
